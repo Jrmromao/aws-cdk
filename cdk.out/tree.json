@@ -1,0 +1,1061 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Construct",
+          "version": "1.147.0"
+        }
+      },
+      "SimpleappStack": {
+        "id": "SimpleappStack",
+        "path": "SimpleappStack",
+        "children": {
+          "mySimpleAppBucket": {
+            "id": "mySimpleAppBucket",
+            "path": "SimpleappStack/mySimpleAppBucket",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "SimpleappStack/mySimpleAppBucket/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                  "aws:cdk:cloudformation:props": {
+                    "bucketEncryption": {
+                      "serverSideEncryptionConfiguration": [
+                        {
+                          "serverSideEncryptionByDefault": {
+                            "sseAlgorithm": "AES256"
+                          }
+                        }
+                      ]
+                    },
+                    "tags": [
+                      {
+                        "key": "aws-cdk:cr-owned:c6a79b5b",
+                        "value": "true"
+                      }
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-s3.CfnBucket",
+                  "version": "1.147.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-s3.Bucket",
+              "version": "1.147.0"
+            }
+          },
+          "MySimpleAppBucket": {
+            "id": "MySimpleAppBucket",
+            "path": "SimpleappStack/MySimpleAppBucket",
+            "children": {
+              "AwsCliLayer": {
+                "id": "AwsCliLayer",
+                "path": "SimpleappStack/MySimpleAppBucket/AwsCliLayer",
+                "children": {
+                  "Code": {
+                    "id": "Code",
+                    "path": "SimpleappStack/MySimpleAppBucket/AwsCliLayer/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "SimpleappStack/MySimpleAppBucket/AwsCliLayer/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/core.AssetStaging",
+                          "version": "1.147.0"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "SimpleappStack/MySimpleAppBucket/AwsCliLayer/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-s3.BucketBase",
+                          "version": "1.147.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "SimpleappStack/MySimpleAppBucket/AwsCliLayer/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::LayerVersion",
+                      "aws:cdk:cloudformation:props": {
+                        "content": {
+                          "s3Bucket": {
+                            "Ref": "AssetParameters391a62714930dde9689f73f04bec0cd78494b9d9b7167446e54c6c939bbbb6b4S3Bucket86831CF2"
+                          },
+                          "s3Key": {
+                            "Fn::Join": [
+                              "",
+                              [
+                                {
+                                  "Fn::Select": [
+                                    0,
+                                    {
+                                      "Fn::Split": [
+                                        "||",
+                                        {
+                                          "Ref": "AssetParameters391a62714930dde9689f73f04bec0cd78494b9d9b7167446e54c6c939bbbb6b4S3VersionKeyC6D21CB4"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Fn::Select": [
+                                    1,
+                                    {
+                                      "Fn::Split": [
+                                        "||",
+                                        {
+                                          "Ref": "AssetParameters391a62714930dde9689f73f04bec0cd78494b9d9b7167446e54c6c939bbbb6b4S3VersionKeyC6D21CB4"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        },
+                        "description": "/opt/awscli/aws"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-lambda.CfnLayerVersion",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/lambda-layer-awscli.AwsCliLayer",
+                  "version": "1.147.0"
+                }
+              },
+              "CustomResourceHandler": {
+                "id": "CustomResourceHandler",
+                "path": "SimpleappStack/MySimpleAppBucket/CustomResourceHandler",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-lambda.SingletonFunction",
+                  "version": "1.147.0"
+                }
+              },
+              "Asset1": {
+                "id": "Asset1",
+                "path": "SimpleappStack/MySimpleAppBucket/Asset1",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "SimpleappStack/MySimpleAppBucket/Asset1/Stage",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.AssetStaging",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "SimpleappStack/MySimpleAppBucket/Asset1/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-s3.BucketBase",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                  "version": "1.147.0"
+                }
+              },
+              "CustomResource": {
+                "id": "CustomResource",
+                "path": "SimpleappStack/MySimpleAppBucket/CustomResource",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "SimpleappStack/MySimpleAppBucket/CustomResource/Default",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnResource",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CustomResource",
+                  "version": "1.147.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-s3-deployment.BucketDeployment",
+              "version": "1.147.0"
+            }
+          },
+          "AssetParameters": {
+            "id": "AssetParameters",
+            "path": "SimpleappStack/AssetParameters",
+            "children": {
+              "391a62714930dde9689f73f04bec0cd78494b9d9b7167446e54c6c939bbbb6b4": {
+                "id": "391a62714930dde9689f73f04bec0cd78494b9d9b7167446e54c6c939bbbb6b4",
+                "path": "SimpleappStack/AssetParameters/391a62714930dde9689f73f04bec0cd78494b9d9b7167446e54c6c939bbbb6b4",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "SimpleappStack/AssetParameters/391a62714930dde9689f73f04bec0cd78494b9d9b7167446e54c6c939bbbb6b4/S3Bucket",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "SimpleappStack/AssetParameters/391a62714930dde9689f73f04bec0cd78494b9d9b7167446e54c6c939bbbb6b4/S3VersionKey",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "SimpleappStack/AssetParameters/391a62714930dde9689f73f04bec0cd78494b9d9b7167446e54c6c939bbbb6b4/ArtifactHash",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.147.0"
+                }
+              },
+              "f98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711da": {
+                "id": "f98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711da",
+                "path": "SimpleappStack/AssetParameters/f98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711da",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "SimpleappStack/AssetParameters/f98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711da/S3Bucket",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "SimpleappStack/AssetParameters/f98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711da/S3VersionKey",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "SimpleappStack/AssetParameters/f98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711da/ArtifactHash",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.147.0"
+                }
+              },
+              "dc53a013b16d192a39fa5491b05333eb2f49132fa0e784f194de2bf2382f6671": {
+                "id": "dc53a013b16d192a39fa5491b05333eb2f49132fa0e784f194de2bf2382f6671",
+                "path": "SimpleappStack/AssetParameters/dc53a013b16d192a39fa5491b05333eb2f49132fa0e784f194de2bf2382f6671",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "SimpleappStack/AssetParameters/dc53a013b16d192a39fa5491b05333eb2f49132fa0e784f194de2bf2382f6671/S3Bucket",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "SimpleappStack/AssetParameters/dc53a013b16d192a39fa5491b05333eb2f49132fa0e784f194de2bf2382f6671/S3VersionKey",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "SimpleappStack/AssetParameters/dc53a013b16d192a39fa5491b05333eb2f49132fa0e784f194de2bf2382f6671/ArtifactHash",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.147.0"
+                }
+              },
+              "07c94b0c4a30b08d14e847933fb4858ac37346d7acce01034cd8dc095c5dec9d": {
+                "id": "07c94b0c4a30b08d14e847933fb4858ac37346d7acce01034cd8dc095c5dec9d",
+                "path": "SimpleappStack/AssetParameters/07c94b0c4a30b08d14e847933fb4858ac37346d7acce01034cd8dc095c5dec9d",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "SimpleappStack/AssetParameters/07c94b0c4a30b08d14e847933fb4858ac37346d7acce01034cd8dc095c5dec9d/S3Bucket",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "SimpleappStack/AssetParameters/07c94b0c4a30b08d14e847933fb4858ac37346d7acce01034cd8dc095c5dec9d/S3VersionKey",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "SimpleappStack/AssetParameters/07c94b0c4a30b08d14e847933fb4858ac37346d7acce01034cd8dc095c5dec9d/ArtifactHash",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.147.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.147.0"
+            }
+          },
+          "Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C": {
+            "id": "Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C",
+            "path": "SimpleappStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "SimpleappStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "SimpleappStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.CfnRole",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "SimpleappStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "SimpleappStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "s3:GetObject*",
+                                    "s3:GetBucket*",
+                                    "s3:List*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":s3:::",
+                                          {
+                                            "Ref": "AssetParametersdc53a013b16d192a39fa5491b05333eb2f49132fa0e784f194de2bf2382f6671S3Bucket18015EBE"
+                                          }
+                                        ]
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":s3:::",
+                                          {
+                                            "Ref": "AssetParametersdc53a013b16d192a39fa5491b05333eb2f49132fa0e784f194de2bf2382f6671S3Bucket18015EBE"
+                                          },
+                                          "/*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Action": [
+                                    "s3:GetObject*",
+                                    "s3:GetBucket*",
+                                    "s3:List*",
+                                    "s3:DeleteObject*",
+                                    "s3:PutObject*",
+                                    "s3:Abort*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "mySimpleAppBucket9A932C55",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "mySimpleAppBucket9A932C55",
+                                              "Arn"
+                                            ]
+                                          },
+                                          "/*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF",
+                            "roles": [
+                              {
+                                "Ref": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                          "version": "1.147.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.Policy",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.Role",
+                  "version": "1.147.0"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "SimpleappStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "SimpleappStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.AssetStaging",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "SimpleappStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-s3.BucketBase",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                  "version": "1.147.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "SimpleappStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Ref": "AssetParametersf98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711daS3BucketF23C0DE7"
+                      },
+                      "s3Key": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::Select": [
+                                0,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersf98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711daS3VersionKey5E97B17D"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Fn::Select": [
+                                1,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersf98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711daS3VersionKey5E97B17D"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
+                        "Arn"
+                      ]
+                    },
+                    "handler": "index.handler",
+                    "layers": [
+                      {
+                        "Ref": "MySimpleAppBucketAwsCliLayerBF64C68B"
+                      }
+                    ],
+                    "runtime": "python3.7",
+                    "timeout": 900
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-lambda.CfnFunction",
+                  "version": "1.147.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-lambda.Function",
+              "version": "1.147.0"
+            }
+          },
+          "MySimpleAppLambda": {
+            "id": "MySimpleAppLambda",
+            "path": "SimpleappStack/MySimpleAppLambda",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "SimpleappStack/MySimpleAppLambda/ServiceRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "SimpleappStack/MySimpleAppLambda/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.CfnRole",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "SimpleappStack/MySimpleAppLambda/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "SimpleappStack/MySimpleAppLambda/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "s3:listBucket",
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::GetAtt": [
+                                      "mySimpleAppBucket9A932C55",
+                                      "Arn"
+                                    ]
+                                  }
+                                },
+                                {
+                                  "Action": [
+                                    "s3:GetObject",
+                                    "s2:PutObject"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Resource": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "mySimpleAppBucket9A932C55",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "/*"
+                                      ]
+                                    ]
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "MySimpleAppLambdaServiceRoleDefaultPolicy3D230489",
+                            "roles": [
+                              {
+                                "Ref": "MySimpleAppLambdaServiceRoleDD0A1010"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                          "version": "1.147.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.Policy",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.Role",
+                  "version": "1.147.0"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "SimpleappStack/MySimpleAppLambda/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "SimpleappStack/MySimpleAppLambda/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.AssetStaging",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "SimpleappStack/MySimpleAppLambda/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-s3.BucketBase",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                  "version": "1.147.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "SimpleappStack/MySimpleAppLambda/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Ref": "AssetParameters07c94b0c4a30b08d14e847933fb4858ac37346d7acce01034cd8dc095c5dec9dS3Bucket9AC4BE81"
+                      },
+                      "s3Key": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::Select": [
+                                0,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParameters07c94b0c4a30b08d14e847933fb4858ac37346d7acce01034cd8dc095c5dec9dS3VersionKey3D166510"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Fn::Select": [
+                                1,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParameters07c94b0c4a30b08d14e847933fb4858ac37346d7acce01034cd8dc095c5dec9dS3VersionKey3D166510"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "MySimpleAppLambdaServiceRoleDD0A1010",
+                        "Arn"
+                      ]
+                    },
+                    "environment": {
+                      "variables": {
+                        "PHOTO_BUCKET_NAME": {
+                          "Ref": "mySimpleAppBucket9A932C55"
+                        },
+                        "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+                      }
+                    },
+                    "handler": "index.getPhotos",
+                    "runtime": "nodejs14.x"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-lambda.CfnFunction",
+                  "version": "1.147.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-lambda-nodejs.NodejsFunction",
+              "version": "1.147.0"
+            }
+          },
+          "mySimpleAppHttpApi": {
+            "id": "mySimpleAppHttpApi",
+            "path": "SimpleappStack/mySimpleAppHttpApi",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "SimpleappStack/mySimpleAppHttpApi/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Api",
+                  "aws:cdk:cloudformation:props": {
+                    "corsConfiguration": {
+                      "allowMethods": [
+                        "GET"
+                      ],
+                      "allowOrigins": [
+                        "*"
+                      ]
+                    },
+                    "name": "photo-api",
+                    "protocolType": "HTTP"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-apigatewayv2.CfnApi",
+                  "version": "1.147.0"
+                }
+              },
+              "DefaultStage": {
+                "id": "DefaultStage",
+                "path": "SimpleappStack/mySimpleAppHttpApi/DefaultStage",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "SimpleappStack/mySimpleAppHttpApi/DefaultStage/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Stage",
+                      "aws:cdk:cloudformation:props": {
+                        "apiId": {
+                          "Ref": "mySimpleAppHttpApi390A9746"
+                        },
+                        "stageName": "$default",
+                        "autoDeploy": true
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-apigatewayv2.CfnStage",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-apigatewayv2.HttpStage",
+                  "version": "1.147.0"
+                }
+              },
+              "GET--getAllPhotos": {
+                "id": "GET--getAllPhotos",
+                "path": "SimpleappStack/mySimpleAppHttpApi/GET--getAllPhotos",
+                "children": {
+                  "BooksIntegration-Permission": {
+                    "id": "BooksIntegration-Permission",
+                    "path": "SimpleappStack/mySimpleAppHttpApi/GET--getAllPhotos/BooksIntegration-Permission",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                      "aws:cdk:cloudformation:props": {
+                        "action": "lambda:InvokeFunction",
+                        "functionName": {
+                          "Fn::GetAtt": [
+                            "MySimpleAppLambda72EF6FEF",
+                            "Arn"
+                          ]
+                        },
+                        "principal": "apigateway.amazonaws.com",
+                        "sourceArn": {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "arn:",
+                              {
+                                "Ref": "AWS::Partition"
+                              },
+                              ":execute-api:",
+                              {
+                                "Ref": "AWS::Region"
+                              },
+                              ":",
+                              {
+                                "Ref": "AWS::AccountId"
+                              },
+                              ":",
+                              {
+                                "Ref": "mySimpleAppHttpApi390A9746"
+                              },
+                              "/*/*/getAllPhotos"
+                            ]
+                          ]
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "BooksIntegration": {
+                    "id": "BooksIntegration",
+                    "path": "SimpleappStack/mySimpleAppHttpApi/GET--getAllPhotos/BooksIntegration",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "SimpleappStack/mySimpleAppHttpApi/GET--getAllPhotos/BooksIntegration/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Integration",
+                          "aws:cdk:cloudformation:props": {
+                            "apiId": {
+                              "Ref": "mySimpleAppHttpApi390A9746"
+                            },
+                            "integrationType": "AWS_PROXY",
+                            "integrationUri": {
+                              "Fn::GetAtt": [
+                                "MySimpleAppLambda72EF6FEF",
+                                "Arn"
+                              ]
+                            },
+                            "payloadFormatVersion": "2.0"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/aws-apigatewayv2.CfnIntegration",
+                          "version": "1.147.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-apigatewayv2.HttpIntegration",
+                      "version": "1.147.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "SimpleappStack/mySimpleAppHttpApi/GET--getAllPhotos/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGatewayV2::Route",
+                      "aws:cdk:cloudformation:props": {
+                        "apiId": {
+                          "Ref": "mySimpleAppHttpApi390A9746"
+                        },
+                        "routeKey": "GET /getAllPhotos",
+                        "authorizationType": "NONE",
+                        "target": {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "integrations/",
+                              {
+                                "Ref": "mySimpleAppHttpApiGETgetAllPhotosBooksIntegration2B8D1A5C"
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-apigatewayv2.CfnRoute",
+                      "version": "1.147.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-apigatewayv2.HttpRoute",
+                  "version": "1.147.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-apigatewayv2.HttpApi",
+              "version": "1.147.0"
+            }
+          },
+          "mySimpleAppBucketNameExport": {
+            "id": "mySimpleAppBucketNameExport",
+            "path": "SimpleappStack/mySimpleAppBucketNameExport",
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.CfnOutput",
+              "version": "1.147.0"
+            }
+          },
+          "MySimpleApi": {
+            "id": "MySimpleApi",
+            "path": "SimpleappStack/MySimpleApi",
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.CfnOutput",
+              "version": "1.147.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "SimpleappStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "SimpleappStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnResource",
+                  "version": "1.147.0"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "SimpleappStack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnCondition",
+                  "version": "1.147.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.147.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Stack",
+          "version": "1.147.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "@aws-cdk/core.App",
+      "version": "1.147.0"
+    }
+  }
+}
